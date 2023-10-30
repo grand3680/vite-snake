@@ -46,7 +46,7 @@ jobs:
         npm run build
 
         rm -rf *
-        cp -r dist/* .
+        cp -r dist/index.html
         git add .
         git commit -m "Deploy to GitHub Pages" --allow-empty
         git push origin main
