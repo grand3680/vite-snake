@@ -1,0 +1,14 @@
+.poopUp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+
+    width: clamp(250px, 50%, 450px);
+    min-height: 150px;
+    background-color: gray;
+    padding: 5px;    
+}
