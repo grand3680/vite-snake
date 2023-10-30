@@ -43,10 +43,11 @@ jobs:
         git config --global user.name "GitHub Actions"
         git checkout main
 
-        npm run build
+        rm -rf dist
+        dir
 
-        rm -rf *
-        cp -r dist/index.html
-        git add .
+        cp dist/index.html index.html
+
+        git add index.html
         git commit -m "Deploy to GitHub Pages" --allow-empty
         git push origin main
