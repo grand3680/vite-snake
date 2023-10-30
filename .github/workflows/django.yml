@@ -42,7 +42,7 @@ jobs:
         git config --global user.email "github-actions@github.com"
         git config --global user.name "GitHub Actions"
         git checkout main
-        git rm -rf .
+        rm -rf *
         cp -r dist/* .
         git add .
         git commit -m "Deploy to GitHub Pages" --allow-empty
