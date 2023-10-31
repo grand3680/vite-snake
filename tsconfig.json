@@ -18,8 +18,23 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src",
+    "types": [
+      "vite/client"
+    ],
+    "paths": {
+      
+      "images/*": ["images/*"],
+      "styles/*": ["tyles/*"],
+      "hooks/*" : ["styles/*"]
+    },    
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "./src",
+  ],
+
+  "exclude": [
+    "./vite.config.ts"
+  ]
 }

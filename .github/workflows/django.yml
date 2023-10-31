@@ -43,6 +43,8 @@ jobs:
         git config --global user.name "GitHub Actions"
         git checkout main
 
+        # rm -rf dist
+
         cp dist/index.html index.html
 
         git add index.html
