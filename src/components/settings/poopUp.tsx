@@ -1,16 +1,21 @@
 import { useState, FC } from 'react';
-import styles from "./poopUp.module.scss"
+import styles from './poopUp.module.scss'
+// import settingImg from '@images/setup.png'
+// import some from 'images/setup.png'
+import some from '../../images/setup.png'
+
 
 export const SettingPoopUp : FC = () => {
     const [activePoopUp, setPoopUp] = useState(true);
 
     return <>
-        <div className={styles.poopUp}>
+        <img className={styles.imgSetting} src={String(some)} onClick={() => setPoopUp((activePoopUp) => !activePoopUp)} alt="" />
+        activePoopUp is {activePoopUp && "true"}
+
+        <div style={{display : activePoopUp ? 'inline' : 'none'}} className={styles.poopUp}>
             <h1>heloo</h1>
 
-            <button onClick={() => setPoopUp((activePoopUp) => !activePoopUp)}>
-                activePoopUp is {activePoopUp}
-            </button>
+
 
             {activePoopUp && <h1>mayBe</h1>}            
         </div>
