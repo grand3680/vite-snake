@@ -7,10 +7,8 @@ const App : FC = () => {
   return (
     <>
       <h1>Snake</h1>
-
-      <SettingPoopUp />
-
       <SnakeCanvas />
+      <SettingPoopUp />
     </>
   )
 }
