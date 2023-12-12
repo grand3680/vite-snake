@@ -7,4 +7,4 @@ npm run dev
 ```
 
 ## screens
-![](screen/test.png)
+![](screen/screen.png)
