@@ -43,5 +43,5 @@ export function moveSnake(this : Game) {
 
 
     this.Player.tails = tails
-    this.Player.deadInfo = this.checkDead();
+    this.checkDead();
 }

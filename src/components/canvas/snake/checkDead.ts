@@ -1,12 +1,8 @@
-import { tailsT } from "types";
 import {Game} from "./game"
 
 export function checkDead(this : Game) : boolean {
-    const tail : tailsT = this.Player.tails;
-
-    for (let i = 1; i <= tail.length - 1; i++) {
-        if (tail[0][0] == tail[i][0] && tail[0][0] == tail[i][1]) return true;
+    for (let i = 1; i <= this.Player.tails.length - 1; i++) {
+        if (this.Player.tails[0][0] == this.Player.tails[i][0] && this.Player.tails[0][1] == this.Player.tails[i][1]) return this.Player.deadInfo = true;
     }
-
-    return false;
+    return this.Player.deadInfo = false;
 }

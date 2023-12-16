@@ -89,20 +89,26 @@ export class Game {
     public update() {
         if (!this.Player.deadInfo) {
             this.moveSnake();
+            this.drawCanvas();
+            setTimeout(() => this.update(), 125);
         } else {
-            // this.moveSnake();
+            this.drawCanvas();
             setTimeout(() => {
                 let n = this.gridSize;
                 let x : number = Math.floor(n / 2);
                 let y : number = Math.floor(n / 2);
 
                 this.Player.tails = [[x, y], [-1, -1], [-1, -1]];
-                this.Player.cherry = [];                 
+                this.Player.cherry = [];
+                this.Player.deadInfo = false;
+                this.Player.directions = "";
+
+                this.makeCherry();
+                this.makeCherry();     
+                this.update();            
             }, 1000)
 
             console.log("you dead ;D");
         }
-        this.drawCanvas();
-        setTimeout(() => this.update(), 125);
     }
 }
