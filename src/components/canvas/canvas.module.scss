@@ -1,6 +1,25 @@
-.canvas {
-    width: 600px;
-    height: 600px;
-    background-color: #353c3c;
+$padding : 100px;
+
+.sectionCanvas {
+    padding-top: $padding;
 }
 
+.canvas {
+    height: 600px;
+    width: 600px;
+    position: relative;
+    border: rgb(29, 23, 23) 10px solid;
+    display: inline-flex;
+    z-index: 100;
+}
+
+
+.canvasBack {
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    border: rgb(153, 29, 29) 10px solid;
+    top: 300px + $padding;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

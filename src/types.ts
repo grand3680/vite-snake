@@ -4,5 +4,6 @@ export type tailsT = [x : number, y : number][];
 export type playerT = {
     tails : tailsT,
     cherry : tailsT, 
-    directions : directionT
+    directions : directionT,
+    deadInfo : boolean
 }

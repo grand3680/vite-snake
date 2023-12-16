@@ -1,64 +1,68 @@
 import { 
-    mapGrid,
     drawCanvas,
+    backGroundCanvas,
     moveSnake,
     handleKeyDown,
     handleMobileMovement,
     handleTouchMove,
-    checkPosibleMove
+    checkPosibleMove,
+    makeCherry,
+    checkDead
 } from "./index"
 
 import { playerT } from 'types.ts'
 
 
 export class Game {
-    protected mapGrid = mapGrid;
     protected drawCanvas = drawCanvas;
     protected moveSnake = moveSnake;
     protected checkPosibleMove = checkPosibleMove;
+    protected makeCherry = makeCherry;
+    protected checkDead = checkDead;
+    protected backGroundCanvas = backGroundCanvas;
 
     protected canvas : HTMLCanvasElement;
+    protected backCanvas : HTMLCanvasElement;
     public ctx : CanvasRenderingContext2D | undefined;
+    public ctxBack : CanvasRenderingContext2D | undefined;
     public gridSize : number;
-    public cellSizeX : number;
-    public cellSizeY : number;
+    public cellSize : number;
 
     public canvasWidth : number;
     public canvasHeight : number;
 
-    public cells : any[];
     public Player : playerT = {
         tails : [[0, 0]],
         cherry : [],
-        directions : ""
+        directions : "",
+        deadInfo : false
     }
 
-    constructor(refCanvas : HTMLCanvasElement, gridSize : number = 10) {
+    constructor(refCanvas : HTMLCanvasElement, backCanvas : HTMLCanvasElement, gridSize : number) {
         this.canvas = refCanvas;
+        this.backCanvas = backCanvas;
         this.gridSize = gridSize;
-
+        
         this.canvasHeight = 600;
         this.canvasWidth = 600;
-        this.cellSizeX = this.canvasWidth / gridSize;
-        this.cellSizeY = this.canvasHeight / gridSize;
+        this.cellSize = this.canvasWidth / gridSize;
 
         this.canvas.width = this.canvasWidth;
         this.canvas.height = this.canvasHeight;
 
-        this.cells = this.mapGrid();
-        console.log(this.cells);
+        this.backCanvas.width = this.canvasWidth;
+        this.backCanvas.height = this.canvasHeight;
+
         
         if (this.canvas !== null) {
             let n = this.gridSize;
             let x : number = Math.floor(n / 2);
             let y : number = Math.floor(n / 2);
 
-            this.Player.tails = [[x, y], [x, y + 1], [x - 1, y]];
-
-            this.cells[x][y] = "xdds";
-            console.log(this.cells);
+            this.Player.tails = [[x, y], [-1, -1], [-1, -1]];
 
             this.ctx = this.canvas.getContext('2d')!;      
+            this.ctxBack = this.backCanvas.getContext('2d')!;      
 
             // pc events
             window.addEventListener('keydown', (e : {keyCode : number}) => {
@@ -74,12 +78,21 @@ export class Game {
                 this.Player.directions = this.checkPosibleMove(handleTouchMove(e, xDown, yDown));
             }, false);
 
+            for (let k = 0; k < 10; k++) {
+                this.makeCherry();
+            }
+            this.backGroundCanvas();
             this.update();
         }
     }
 
     public update() {
-        this.moveSnake();
+        if (!this.Player.deadInfo) {
+            this.moveSnake();
+        } else {
+            // this.moveSnake();
+            console.log("you dead ;D");
+        }
         this.drawCanvas();
         setTimeout(() => this.update(), 125);
     }

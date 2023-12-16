@@ -1,7 +1,6 @@
 import { directionT } from 'types.ts';
 
 export function handleKeyDown(keyCode : number) : directionT {
-    console.log(keyCode);
     switch (keyCode) {
         case 37:
         case 65:

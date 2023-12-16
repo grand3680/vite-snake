@@ -1,8 +1,11 @@
 export { drawCanvas } from './drawCanvas';
 export { moveSnake } from './moveSnake';
-export { mapGrid } from './mapGrid';
 export { handleKeyDown } from './handleKeyDown';
 export { checkPosibleMove } from './checkPosibleMove';
+
+export { makeCherry } from './makeCherry';
+export { checkDead } from './checkDead';
+export { backGroundCanvas }from './backGround';
 
 export { handleMobileMovement, handleTouchMove } from './handleMobileMovement'
 
