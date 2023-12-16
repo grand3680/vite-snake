@@ -91,6 +91,15 @@ export class Game {
             this.moveSnake();
         } else {
             // this.moveSnake();
+            setTimeout(() => {
+                let n = this.gridSize;
+                let x : number = Math.floor(n / 2);
+                let y : number = Math.floor(n / 2);
+
+                this.Player.tails = [[x, y], [-1, -1], [-1, -1]];
+                this.Player.cherry = [];                 
+            }, 1000)
+
             console.log("you dead ;D");
         }
         this.drawCanvas();

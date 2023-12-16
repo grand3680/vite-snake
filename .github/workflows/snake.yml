@@ -21,7 +21,6 @@ jobs:
 
       - name: Build
         run: |
-          echo ${{ secrets.ACCESS_TOKEN }}
           npm run build
           
       - name: Deploy
