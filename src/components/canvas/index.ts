@@ -1,1 +1,0 @@
-export {SnakeCanvas} from "./canvasBackground";
