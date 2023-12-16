@@ -1,4 +1,4 @@
-# snake in React \ Typescript
+# snake in React \ Typescript && tsx
 
 ## for open Project into local in localhost:3000
 
