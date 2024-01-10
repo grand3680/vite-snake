@@ -8,10 +8,11 @@ export function drawCanvas(this : Game) {
     
     this.ctx.beginPath();
     for (let i = 0; i < this.Player.tails.length; i++) {
+        if (this.Player.tails[i][0] <= -1 && this.Player.tails[i][1] <= -1) continue;
         
         if (i % 2 == 0) this.ctx.fillStyle = "lime";
         else this.ctx.fillStyle = "green";
-
+        
         this.ctx.fillRect(this.Player.tails[i][0] * cellSize, this.Player.tails[i][1] * cellSize, cellSize, cellSize);  
 
     }

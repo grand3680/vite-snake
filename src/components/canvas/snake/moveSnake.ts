@@ -34,7 +34,6 @@ export function moveSnake(this : Game) {
             if (tails[0][0] == this.Player.cherry[k][0] && tails[0][1] == this.Player.cherry[k][1]) {
                 tails = [...tails, [-1, -1]]
                 this.Player.cherry.splice(k, 1);
-
                 this.makeCherry();
             }
 
